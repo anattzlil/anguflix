@@ -1,0 +1,13 @@
+<div class="intro">
+    <h1>{{title}}</h1>
+    <div>
+      <h3>Hi {{user.name}}!</h3>
+      <h3>your budget is: ${{user.budget}}</h3>
+    </div>
+  
+</div>
+<h2 class="instruction" *ngIf="movies.length == 0">Select movies from below to add to your collection</h2>
+<div class="container">
+
+  <app-movie class="row" *ngFor="let movie of movies; index as i" [movie]=movie [chosen]=true (movieDeleted)="deleteMovie($event)"></app-movie>
+</div>

@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+    text-align: center;
+}
+
+.intro {
+    display: flex;
+    justify-content: space-between;
+}
+
+.instruction{
+    text-align: center;
+}
