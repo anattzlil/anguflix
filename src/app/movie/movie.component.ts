@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MovieService } from '../movie.service';
-import { Movie } from '../movie'
+import { Movie } from '../movie';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-movie',
@@ -13,8 +15,9 @@ export class MovieComponent implements OnInit {
   @Input() movie: Movie = new Movie();
   @Output() movieAdded: EventEmitter<Movie> = new EventEmitter();
   @Output() movieDeleted: EventEmitter<Movie> = new EventEmitter();
+  @Output() moreInfo: EventEmitter<Movie> = new EventEmitter();
   
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.title="All Movies"
@@ -26,6 +29,10 @@ export class MovieComponent implements OnInit {
 
   onDelete(){
     this.movieDeleted.emit(this.movie);
+  }
+
+  onClickMore(){
+    this.moreInfo.emit(this.movie);
   }
 
 }

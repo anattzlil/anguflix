@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="image-container">
+    <img src="{{movie.imgUrl}}"/>
+  </div>
+  <div class="extended-container">
+    <a routerLink="/">BACK</a>
+    <h1>{{movie.title}}</h1>
+    <hr>
+    <h4>Director: {{movie.director}} | Year: {{movie.year}}</h4>
+    <p>{{movie.fullDescription}}</p>
+    <button *ngIf = "!chosen" class="btn-small" (click)="onPurchase()">Purchase</button>
+    <button *ngIf = "chosen" class="btn-small" (click)="onDelete()">Delete</button>
+    <app-review-list (submitReview)='addReview($event)'[movie]="movie"></app-review-list>
+  </div>
+</div>

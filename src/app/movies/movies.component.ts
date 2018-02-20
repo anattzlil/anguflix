@@ -13,6 +13,7 @@ export class MoviesComponent implements OnInit {
   movies: any[];
   movieTitle: string = "";
   searchText: string; 
+  moviesLoaded: boolean = true;
   constructor(
     private movieService: MovieService,
     private usersService: UsersService,
@@ -21,11 +22,15 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
     this.title="All Movies";
     this.fetchMovies();
+    this.moviesLoaded = false;
   }
 
   fetchMovies(){
     this.movieService.getMovies().subscribe(
-      movies => this.movies = movies,
+      movies => {
+        this.movies = movies;
+        this.moviesLoaded = true;
+      },
       error => {
         console.log(error);
   });
@@ -38,7 +43,20 @@ export class MoviesComponent implements OnInit {
   }
 
   findMovie(movieTitle){
-    this.searchText = movieTitle;
+    this.movieService.searchMovie(movieTitle).subscribe(
+      movies =>{
+        this.movies = movies;
+        console.log(this.movies);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+
+  onMoreInfo(movie){
+    this.movieService.searchMovieById(movie._id);
+    console.log(movie._id);
   }
 
 }

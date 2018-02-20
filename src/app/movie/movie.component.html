@@ -1,7 +1,11 @@
   <div class="row-inner">
-    <img src="{{movie.imgUrl}}"/>
-    <h3>{{movie.title}}<span>{{movie.year}}</span></h3>
-    <p>{{movie.shortDescription}}</p>
-    <button *ngIf="!chosen" class="btn" type="button" (click)="onPurchase()">Purchase</button>
-    <button *ngIf="chosen" class="btn" type="button" (click)="onDelete()">Delete</button>
+    <div class="img-container">
+        <img src="{{movie.imgUrl}}"/>
+    </div>
+    <div class="text-container">
+      <h3>{{movie.title}}<span>{{movie.year}}</span></h3>
+      <p>{{movie.shortDescription}} <a (click)="onClickMore()" [routerLink]="['movies', movie._id]">more...</a></p>
+      <button *ngIf="!chosen" class="btn" type="button" (click)="onPurchase()">Purchase</button>
+      <button *ngIf="chosen" class="btn" type="button" (click)="onDelete()">Delete</button>
+    </div>
   </div>

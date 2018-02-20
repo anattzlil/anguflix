@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movie';
 import { User } from './user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Review } from './review';
+
 
 // const MOVIES = [
 //   {id:0,img:"http://static.comicvine.com/uploads/original/10/104544/4068923-tarzan-wallpaper-walt-disneys-tarzan-6248938-1024-768.jpg",title:"Tarzan", price:3, year:1999, descrShort:"The movie is about the life of Tarzan. Tarzan was a small orphan who was raised by an ape named Kala since he was a child. He believed that this was his family, but on an expedition Jane Porter is rescued by Tarzan."},
@@ -27,9 +29,18 @@ getMovies(): Observable<Movie[]> {
   return this.http.get<Movie[]>('https://anguflix-api.herokuapp.com/api/movies');
 }
 
-// The ability to reduce the budget when a movie is "purchased".
-reduceBudget(){
+searchMovie(movieTitle): Observable<Movie[]>{
+  const params = new HttpParams()
+    .set('title', movieTitle)
+  return this.http.get<Movie[]>('https://anguflix-api.herokuapp.com/api/movies', {params});
+}
 
+searchMovieById(id){
+  return this.http.get<Movie>('https://anguflix-api.herokuapp.com/api/movies/' + id );
+}
+
+addReview(review, id):Observable<Review>{
+  return this.http.post<Review>('https://anguflix-api.herokuapp.com/api/movies/'+id+'/reviews', review)
 }
 
 }
