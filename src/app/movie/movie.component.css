@@ -9,11 +9,14 @@
 
 .row-inner {
    padding: 4%;
-   height: 100%;
+   /* height: 100%; */
    border-radius: 15px;
    box-shadow: 5px 5px 20px grey;
 }
 
+.img-container {
+    max-height: 250px; overflow: hidden;
+}
 
 img {
     width: 100%;
@@ -27,4 +30,21 @@ img {
     color: white;
     border: none;
     border-radius: 5px;
+}
+.text-container {
+    height: 190px;
+}
+
+h3 {
+    padding-top: 5%;
+}
+
+p {
+    padding: 3% 0;
+}
+
+span {
+ font-size: 14px;
+ padding-left: 2%;
+ color:  rgb(163, 50, 60);
 }

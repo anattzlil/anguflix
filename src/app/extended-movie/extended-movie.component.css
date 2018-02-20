@@ -1,0 +1,69 @@
+img {
+    width: 500px;
+}
+
+.extended-container {
+    padding: 4%;
+    width: 40%;
+}
+
+.container {
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+h4 {
+    padding: 2% 0;
+}
+
+hr {
+    border-top: 5px solid #000000;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    padding: 1% 0;
+    margin-top: 2%;
+
+}
+
+.btn {
+    margin-top: 2%;
+    padding: 2%;
+    font-size: 18px;
+    background-color: brown;
+    color: white;
+    margin-bottom: 5%;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-small {
+    margin-top: 1%;
+    padding: 2%;
+    font-size: 14px;
+    background-color: brown;
+    color: white;
+    margin-bottom: 5%;
+    border: none;
+    border-radius: 5px;
+}
+
+.reviews-hdl{
+    padding-top: 7%;
+    font-size: 20px;
+}
+
+.review-name {
+    font-weight: bold;
+}
+
+span {
+    font-weight: 200;
+}

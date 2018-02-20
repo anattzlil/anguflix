@@ -1,5 +1,10 @@
 <h1>{{title}}</h1>
-<app-search (titleChanged)='findMovie($event)'></app-search>
+<app-search  (titleChanged)='findMovie($event)'></app-search>
+<div  [ngClass]="{'hide': moviesLoaded == true, 'spinner': true}">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
 <div class="container">
-<app-movie class="row" *ngFor="let movie of movies | filter: searchText; index as i" [movie]=movie (movieAdded)='addMovie($event)'></app-movie>
+    <app-movie class="row" *ngFor="let movie of movies | filter: searchText; index as i" [movie]=movie (movieAdded)='addMovie($event)' (moreInfo)='onMoreInfo($event)'></app-movie>
 </div>

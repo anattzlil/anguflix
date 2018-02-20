@@ -11,6 +11,12 @@ import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
 import { ChosenMoviesComponent } from './chosen-movies/chosen-movies.component';
 import { SearchComponent } from './search/search.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { ExtendedMovieComponent } from './extended-movie/extended-movie.component';
+import { HomeComponentComponent } from './home-component/home-component.component';
+import { ReviewListComponent } from './review-list/review-list.component';
+import { ReviewComponent } from './review/review.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
 
 
 @NgModule({
@@ -20,12 +26,18 @@ import { SearchComponent } from './search/search.component';
     MovieComponent,
     ChosenMoviesComponent,
     SearchComponent,
-    FilterPipe
+    FilterPipe,
+    ExtendedMovieComponent,
+    HomeComponentComponent,
+    ReviewListComponent,
+    ReviewComponent,
+    ReviewFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [MovieService, UsersService],
   bootstrap: [AppComponent]
